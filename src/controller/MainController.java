@@ -25,6 +25,14 @@ public class MainController {
 
     @FXML
     public void addGradeButton(ActionEvent actionEvent) {
+        int grade = Integer.parseInt(studentGradeField.getText());
+        grades.add(grade);
+
+        model.Student student = new model.Student(studentNumberField.getText(), grades);
+        double avg = student.getAverage();
+
+        outputLabel.setText("Average : " + avg);
+        studentGradeField.clear();
 
     }
 }
