@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class MainController {
 
 
     @FXML
-    public void addGradeButton(ActionEvent actionEvent) {
+    public void addGradeButton(ActionEvent actionEvent) throws IOException {
         int grade = Integer.parseInt(studentGradeField.getText());
         grades.add(grade);
 
@@ -33,6 +35,14 @@ public class MainController {
 
         outputLabel.setText("Average : " + avg);
         studentGradeField.clear();
+
+        FileWriter writer = new FileWriter("save.txt", true);
+        writer.write(
+                nameField.getText()+ " " +
+                    emailField.getText()+  " " +
+                    studentNumberField.getText()+ " " +
+                    grades.toString() + "\n" );
+        writer.close();
 
     }
 }
