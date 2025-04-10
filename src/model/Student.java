@@ -25,6 +25,7 @@ public class Student {
         for (Integer grade : grades) {
             sum += grade;
             count++;
+
         }
         return (double) sum/count;
     }
