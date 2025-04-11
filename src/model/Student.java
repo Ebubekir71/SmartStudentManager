@@ -24,7 +24,9 @@ public class Student {
         int count= 0;
         for (Integer grade : grades) {
             sum += grade;
+
             count++;
+
 
         }
         return (double) sum/count;
